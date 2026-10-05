@@ -12,8 +12,7 @@ class PemesananSeeder extends Seeder
  
     public function run(): void
     {
-        // 1. Cek apakah tabel 'pelanggans' sudah dibuat oleh migration/temanmu.
-        // Jika tabelnya ada, baru buat data dummy pelanggan. Jika belum ada, step ini dilewati dengan aman.
+    
         if (Schema::hasTable('pelanggans')) {
             DB::table('pelanggans')->insertOrIgnore([
                 'user_id' => 1,
@@ -28,7 +27,6 @@ class PemesananSeeder extends Seeder
             ]);
         }
 
-        // 2. Data Dummy Pemesanan (7 Records: PMS01 - PMS07)
         $dataPemesanan = [
             [
                 'id_pemesanan' => 'PMS01',
