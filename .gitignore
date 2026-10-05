@@ -1,3 +1,4 @@
+# Laravel
 /.phpunit.cache
 /node_modules
 /public/build
@@ -16,8 +17,25 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /auth.json
+
+# Laravel project in RENTIGO
+laravel/rentigo_api/.env
+laravel/rentigo_api/vendor/
+laravel/rentigo_api/storage/logs/
+laravel/rentigo_api/storage/framework/
+laravel/rentigo_api/bootstrap/cache/
+
+# Editor
 /.fleet
 /.idea
 /.nova
 /.vscode
 /.zed
+
+# Flutter
+flutter/flutter_application_1/.dart_tool/
+flutter/flutter_application_1/build/
+flutter/flutter_application_1/.idea/
+flutter/flutter_application_1/.flutter-plugins
+flutter/flutter_application_1/.flutter-plugins-dependencies
+flutter/flutter_application_1/pubspec.lock
