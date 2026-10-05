@@ -8,10 +8,28 @@ use Illuminate\Support\Facades\Hash;
 
 class PelangganController extends Controller
 {
-    // 1. Tampilkan Semua Pelanggan
-    public function index()
+    // 1. Tampilkan Semua Pelanggan / Pencarian berdasarkan Parameter Query
+    public function index(Request $request)
     {
-        $data = Pelanggan::all();
+        $query = Pelanggan::query();
+
+        // Filter berdasarkan email jika ada param ?email=...
+        if ($request->has('email') && !empty($request->email)) {
+            $query->where('email', $request->email);
+        }
+
+        // Filter berdasarkan username jika ada param ?username=...
+        if ($request->has('username') && !empty($request->username)) {
+            $query->where('username', $request->username);
+        }
+
+        // Filter pencarian nama jika ada param ?nama=...
+        if ($request->has('nama') && !empty($request->nama)) {
+            $query->where('nama', 'like', '%' . $request->nama . '%');
+        }
+
+        $data = $query->get();
+
         return response()->json([
             'success' => true,
             'message' => 'Daftar data pelanggan',
